@@ -1,4 +1,5 @@
 spring:
+  output.ansi.enabled: ALWAYS
   data-source:
     url: jdbc:mysql://localhost:3306/attach?useUnicode=true&characterEncoding=UTF-8&useLocalSessionState=true
     username: user
@@ -25,6 +26,3 @@ logging.level:
     hibernate:
       SQL: DEBUG
       type.descriptor.sql.BasicBinder: TRACE
-
-
-
