@@ -20,7 +20,7 @@
 
 * [x] MySQL on Docker
 
-* [ ] Redis on Docker (Single)
+* [x] Redis on Docker (Single)
 
   * Cluster 구성은 나중에
 

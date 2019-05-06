@@ -16,3 +16,16 @@ services:
       interval: 10s
       timeout: 10s
       retries: 10
+
+  redis:
+    image: redis:5
+    container_name: friday_colini_attach_redis-5
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./volume/redis/data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 10s
+      retries: 10
