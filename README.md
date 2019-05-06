@@ -26,8 +26,9 @@
 
 * [x] [DB Modeling](https://github.com/team-friday/friday_colini_attach_api/wiki/DB-%EB%AA%A8%EB%8D%B8%EB%A7%81)
 
-* [ ] Create SQL
+* [x] Create SQL
 
+  * Index는 나중에
   
 
 #### 기본 기능 개발
