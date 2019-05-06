@@ -8,9 +8,9 @@
 
 #### Spring Boot 생성
 
-* [ ] JPA 설정
+* [x] JPA 설정
 
-* [ ] MySQL 설정
+* [x] MySQL 설정
 
 * [x] Web 설정
 
