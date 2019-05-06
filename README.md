@@ -18,7 +18,7 @@
 
 #### DB 생성
 
-* [ ] MySQL on Docker
+* [x] MySQL on Docker
 
 * [ ] Redis on Docker (Single)
 
