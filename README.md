@@ -24,7 +24,7 @@
 
   * Cluster 구성은 나중에
 
-* [ ] DB Modeling
+* [x] [DB Modeling](https://github.com/team-friday/friday_colini_attach_api/wiki/DB-%EB%AA%A8%EB%8D%B8%EB%A7%81)
 
 * [ ] Create SQL
 
