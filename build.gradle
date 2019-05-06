@@ -1,0 +1,35 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+    id 'java'
+    id 'idea'
+}
+
+group = 'com.friday.colini'
+version = '0.0.1'
+
+ext {
+    javaVersion = 12
+
+    versions = [
+            'lombok'                : '1.18.+',
+            'spring-boot'           : '2.1.+',
+    ]
+}
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: versions['lombok']
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions['lombok']
+
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions['spring-boot']
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: versions['spring-boot']
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: versions['spring-boot']
+}
