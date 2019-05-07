@@ -15,14 +15,3 @@ spring:
         show_sql: true
 
 server.port: 8080
-
-logging.level:
-  root: INFO
-  com.friday.colini.attach: TRACE
-  org:
-    springframework:
-      web: DEBUG
-      boot: DEBUG
-    hibernate:
-      SQL: DEBUG
-      type.descriptor.sql.BasicBinder: TRACE
