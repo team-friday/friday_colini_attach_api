@@ -13,7 +13,7 @@ public class DefaultController {
         return Response.ok().build();
     }
 
-    @RequestMapping("/*")
+    @RequestMapping
     public ResponseEntity notFound() {
         return PlatformStatus.NOT_FOUND.toResponse();
     }
