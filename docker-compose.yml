@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: friday_colini_attach_mysql-8
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=attach
+      - MYSQL_ROOT_HOST=127.0.0.1
+    ports:
+      - '3306:3306'
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  redis:
+    image: redis:5
+    container_name: friday_colini_attach_redis-5
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./volume/redis/data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 10s
+      retries: 10
