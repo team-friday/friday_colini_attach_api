@@ -11,11 +11,16 @@ import org.springframework.lang.Nullable;
 
 @AllArgsConstructor
 public enum PlatformStatus {
+    // Global
     BAD_REQUEST(HttpStatus.BAD_REQUEST),
     NOT_FOUND(HttpStatus.NOT_FOUND),
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR),
-
+    
     ;
+
+    //
+    //
+    //
 
     private final HttpStatus httpStatus;
 
@@ -26,6 +31,10 @@ public enum PlatformStatus {
     public @NonNull ResponseEntity<Error> toResponse(@Nullable final Header header) {
         return Response.status(httpStatus).headers(header).body(toError());
     }
+
+    //
+    //
+    //
 
     private @NonNull Error toError() {
         return Error.builder().code(getErrorCode()).message(getErrorMessage()).build();
