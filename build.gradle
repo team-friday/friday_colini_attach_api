@@ -17,6 +17,7 @@ ext {
             'h2'                    : '1.4.+',
             'hibernate'             : '5.+',
             'mysql'                 : '8.+',
+            'uuid'                  : '3.2.+',
     ]
 }
 
@@ -44,4 +45,6 @@ dependencies {
     implementation group: 'org.hibernate', name: 'hibernate-hikaricp', version: versions['hibernate']
 
     implementation group: 'mysql', name: 'mysql-connector-java', version: versions['mysql']
+
+    implementation group: 'com.fasterxml.uuid', name: 'java-uuid-generator', version: versions['uuid']
 }
