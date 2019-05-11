@@ -7,12 +7,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 
 @Builder
-class PlatformException extends Exception {
+public class PlatformException extends RuntimeException {
     @Builder.Default
     private PlatformStatus status = PlatformStatus.INTERNAL_SERVER_ERROR;
     private Header header;
 
-    public @NonNull ResponseEntity<Error> toResponse() {
+    //
+    //
+    //
+
+    @NonNull ResponseEntity<Error> toResponse() {
         return status.toResponse(header);
+    }
+
+    @Override
+    public String getMessage() {
+        return status.toString();
     }
 }
