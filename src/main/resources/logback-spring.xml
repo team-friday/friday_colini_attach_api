@@ -31,7 +31,7 @@
         <appender-ref ref="ROLLING" />
     </appender>
 
-    <springProfile name="dev">
+    <springProfile name="dev, test, local">
         <logger name="org.springframework.web" level="DEBUG" />
         <logger name="org.springframework.boot" level="DEBUG" />
         <logger name="org.hibernate" level="DEBUG" />
