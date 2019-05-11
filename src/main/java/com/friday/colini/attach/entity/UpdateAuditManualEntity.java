@@ -17,9 +17,17 @@ abstract class UpdateAuditManualEntity extends ManualPrimaryEntity {
     @LastModifiedDate @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
+    //
+    //
+    //
+
     UpdateAuditManualEntity(final long id) {
         super(id);
     }
+
+    //
+    //
+    //
 
     Optional<LocalDateTime> getUpdatedAt() {
         return BeanUtils.getBean(DateConverter.class).dateToLocalDateTime(updatedAt);
