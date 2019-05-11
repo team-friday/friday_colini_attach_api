@@ -7,6 +7,10 @@ public class Error {
     private String code;
     private String message;
 
+    //
+    //
+    //
+
     public String getErrCode() {
         return code;
     }

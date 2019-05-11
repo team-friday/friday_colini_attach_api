@@ -18,6 +18,7 @@ public class DefaultControllerTests extends ControllerSupport {
         final var response = template.getForEntity("/34rtgrtgr43rtr", String.class);
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        Assertions.assertThat(response.getBody()).isEqualTo("{\"errCode\":\"404\",\"errMessage\":\"NOT_FOUND\"}");
+        Assertions.assertThat(response.getBody()).contains("\"errCode\":\"404\"");
+        Assertions.assertThat(response.getBody()).contains("\"errMessage\":\"NOT_FOUND\"");
     }
 }
