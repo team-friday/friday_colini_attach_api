@@ -1,21 +1,21 @@
 package com.friday.colini.attach.entity;
 
-import com.friday.colini.attach.utils.BeanUtils;
-import com.friday.colini.attach.utils.DateConverter;
+import com.friday.colini.attach.entity.converter.LocalDateTimeConveter;
+import lombok.Getter;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Optional;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 abstract class UpdateAuditManualEntity extends ManualPrimaryEntity {
+    @Getter
     @Column(nullable = false)
-    @LastModifiedDate @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
+    @Convert(converter = LocalDateTimeConveter.class)
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 
     //
     //
@@ -23,13 +23,5 @@ abstract class UpdateAuditManualEntity extends ManualPrimaryEntity {
 
     UpdateAuditManualEntity(final long id) {
         super(id);
-    }
-
-    //
-    //
-    //
-
-    Optional<LocalDateTime> getUpdatedAt() {
-        return BeanUtils.getBean(DateConverter.class).dateToLocalDateTime(updatedAt);
     }
 }
