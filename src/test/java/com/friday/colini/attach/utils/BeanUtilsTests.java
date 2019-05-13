@@ -13,10 +13,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class BeanUtilsTests {
     @Test
-    public void test() {
+    public void loadBeanFromSpringContext() {
         var application = BeanUtils.getBean(Application.class);
 
         Assertions.assertThat(application).isNotNull();
-
     }
 }
