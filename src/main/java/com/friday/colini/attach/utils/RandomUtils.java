@@ -20,7 +20,7 @@ public class RandomUtils {
     //
 
     @Autowired
-    public RandomUtils(@NonNull AlphaNumeric alphaNumeric) {
+    public RandomUtils(@NonNull final AlphaNumeric alphaNumeric) {
         this.alphaNumeric = alphaNumeric;
     }
 

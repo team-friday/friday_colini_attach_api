@@ -21,7 +21,7 @@ class AlphaNumeric {
             @NonNull final Alphabet alphabet,
             @NonNull final Digits digits
     ) {
-        value = alphabet.getUpperCase() + alphabet.getLowerCase() + digits.getValue();
+        value = alphabet.getUpperCase() + alphabet.getLowerCase() + digits.getStringDigits();
     }
 
     //
