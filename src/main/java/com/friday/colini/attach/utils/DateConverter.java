@@ -13,13 +13,28 @@ import java.util.Optional;
 
 @Component
 public class DateConverter {
+    public Optional<Date> localDateTimeToDate(@Nullable final LocalDateTime localDateTime) {
+        return localDateTimeToDate(localDateTime, ZoneId.systemDefault());
+    }
+
+    public Optional<Date> localDateTimeToDate(
+            @Nullable final LocalDateTime localDateTime,
+            @NonNull final ZoneId zoneId
+    ) {
+        if (Objects.isNull(localDateTime)) {
+            return Optional.empty();
+        }
+
+        return Optional.of(Date.from(localDateTime.atZone(zoneId).toInstant()));
+    }
+
     public Optional<LocalDateTime> dateToLocalDateTime(@Nullable final Date date) {
         return dateToLocalDateTime(date, ZoneId.systemDefault());
     }
 
     public Optional<LocalDateTime> dateToLocalDateTime(
             @Nullable final Date date,
-            @NonNull ZoneId zoneId
+            @NonNull final ZoneId zoneId
     ) {
         if (Objects.isNull(date)) {
             return Optional.empty();
