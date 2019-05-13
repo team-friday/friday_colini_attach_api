@@ -1,6 +1,6 @@
 package com.friday.colini.attach.entity;
 
-import com.friday.colini.attach.entity.converter.LocalDateTimeConveter;
+import com.friday.colini.attach.entity.converter.LocalDateTimeConverter;
 import lombok.Getter;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 abstract class UpdateAuditManualEntity extends ManualPrimaryEntity {
     @Getter
     @Column(nullable = false)
-    @Convert(converter = LocalDateTimeConveter.class)
+    @Convert(converter = LocalDateTimeConverter.class)
     @LastModifiedDate
     private LocalDateTime updatedAt;
 

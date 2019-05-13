@@ -1,6 +1,6 @@
 package com.friday.colini.attach.entity;
 
-import com.friday.colini.attach.entity.converter.LocalDateTimeConveter;
+import com.friday.colini.attach.entity.converter.LocalDateTimeConverter;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 abstract class CreateAuditChildEntity extends AutoChildEntity {
     @Getter
     @Column(nullable = false, updatable = false)
-    @Convert(converter = LocalDateTimeConveter.class)
+    @Convert(converter = LocalDateTimeConverter.class)
     @CreatedDate
     private LocalDateTime createdAt;
 }
