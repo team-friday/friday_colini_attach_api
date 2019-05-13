@@ -4,7 +4,6 @@ import com.friday.colini.attach.model.Error;
 import com.friday.colini.attach.model.Header;
 import lombok.Builder;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.NonNull;
 
 @Builder
 public class PlatformException extends RuntimeException {
@@ -16,7 +15,7 @@ public class PlatformException extends RuntimeException {
     //
     //
 
-    @NonNull ResponseEntity<Error> toResponse() {
+    ResponseEntity<Error> toResponse() {
         return status.toResponse(header);
     }
 
