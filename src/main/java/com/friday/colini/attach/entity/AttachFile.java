@@ -69,11 +69,11 @@ public class AttachFile extends AutoPrimaryEntity {
     }
 
     public @Nullable LocalDateTime getLastDownloadAt() {
-        return attachDownload.getUpdatedAt().orElse(null);
+        return attachDownload.getUpdatedAt();
     }
 
     public @Nullable LocalDateTime getCreatedAt() {
-        return attachRequest.getCreatedAt().orElse(null);
+        return attachRequest.getCreatedAt();
     }
 
     public boolean isNotEqualsAttachRequestId(long attachRequestId) {
