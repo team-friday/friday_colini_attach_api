@@ -6,7 +6,6 @@ import com.friday.colini.attach.model.Response;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 @AllArgsConstructor
@@ -27,11 +26,11 @@ public enum PlatformStatus {
 
     private final HttpStatus httpStatus;
 
-    public @NonNull ResponseEntity<Error> toResponse() {
+    public ResponseEntity<Error> toResponse() {
         return toResponse(null);
     }
 
-    public @NonNull ResponseEntity<Error> toResponse(@Nullable final Header header) {
+    public ResponseEntity<Error> toResponse(@Nullable final Header header) {
         return Response.status(httpStatus).headers(header).body(toError());
     }
 
@@ -39,17 +38,17 @@ public enum PlatformStatus {
     //
     //
 
-    private @NonNull Error toError() {
+    private Error toError() {
         return Error.builder().code(getErrorCode()).message(getErrorMessage()).build();
     }
 
-    private @NonNull String getErrorCode() {
-        // TODO:
+    private String getErrorCode() {
+        // TODO: Extends error code
         return String.format("%d", httpStatus.value());
     }
 
-    private @NonNull String getErrorMessage() {
-        // TODO:
+    private String getErrorMessage() {
+        // TODO: Extends error message
         return name();
     }
 }
