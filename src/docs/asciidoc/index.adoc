@@ -58,10 +58,10 @@ Health Check를 제외한 모든 API는 인증받은 사용자만 이용 가능�
 [[default]]
 == 공통 API
 
-=== Health Check
+=== 상태 체크
 
 |===
-| 헬스 체크
+| 서버 상태 체크
 |===
 
 CURL:
@@ -81,7 +81,7 @@ Response HTTP Example:
 include::{snippets}/default/health-check/http-response.adoc[]
 
 
-=== Not Found
+=== 없는 요청
 
 |===
 | 구현되지 않은 경로로 요청 시 응답
@@ -104,3 +104,187 @@ Response HTTP Example:
 
 include::{snippets}/default/not-found/http-response.adoc[]
 
+
+[[attach]]
+== Attach API
+
+=== 파일 업로드
+
+|===
+| 파일 업로드 요청
+|===
+
+
+CURL:
+
+include::{snippets}/attach/save-request/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/attach/save-request/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/attach/save-request/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/attach/save-request/http-response.adoc[]
+
+Response Fields:
+
+include::{snippets}/attach/save-request/response-fields.adoc[]
+
+
+=== 파일 업로드 (여러 개)
+
+|===
+| 파일 업로드 요청 (여러 개)
+|===
+
+
+CURL:
+
+include::{snippets}/attach/multi-save-request/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/attach/multi-save-request/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/attach/multi-save-request/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/attach/multi-save-request/http-response.adoc[]
+
+Response Fields:
+
+include::{snippets}/attach/multi-save-request/response-fields.adoc[]
+
+
+
+=== 파일 업로드 조회
+
+|===
+| 파일 업로드 요청에 대한 조회
+|===
+
+
+CURL:
+
+include::{snippets}/attach/save-request-find/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/attach/save-request-find/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/attach/save-request-find/path-parameters.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/attach/save-request-find/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/attach/save-request-find/http-response.adoc[]
+
+Response Fields:
+
+include::{snippets}/attach/save-request-find/response-fields.adoc[]
+
+
+=== 파일 업로드 조회 (없는 요청)
+
+|===
+| 파일 업로드 요청에 대한 조회 (없는 요청)
+|===
+
+
+CURL:
+
+include::{snippets}/attach/save-request-not-found/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/attach/save-request-not-found/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/attach/save-request-not-found/path-parameters.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/attach/save-request-not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/attach/save-request-not-found/http-response.adoc[]
+
+Response Fields:
+
+include::{snippets}/attach/save-request-not-found/response-fields.adoc[]
+
+
+=== 파일 다운로드
+
+|===
+| 파일 다운로드 요청
+|===
+
+
+CURL:
+
+include::{snippets}/attach/download-attach-file/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/attach/download-attach-file/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/attach/download-attach-file/path-parameters.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/attach/download-attach-file/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/attach/download-attach-file/http-response.adoc[]
+
+
+
+=== 파일 다운로드 (없는 파일)
+
+|===
+| 파일 다운로드 요청 (없는 파일)
+|===
+
+
+CURL:
+
+include::{snippets}/attach/not-found-download-attach-file/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/attach/not-found-download-attach-file/httpie-request.adoc[]
+
+Path Parameters:
+
+include::{snippets}/attach/not-found-download-attach-file/path-parameters.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/attach/not-found-download-attach-file/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/attach/not-found-download-attach-file/http-response.adoc[]
+
+Response Fields:
+
+include::{snippets}/attach/save-request-not-found/response-fields.adoc[]

@@ -11,7 +11,7 @@ spring:
 
 colini.attach:
   file:
-    uploadType: S3
+    uploadType: Local
     defaultUploadPath: temp/uploads
   aws:
     accessKey: ACCESS_KEY
