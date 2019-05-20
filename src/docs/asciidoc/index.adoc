@@ -1,0 +1,106 @@
+ifndef::snippets[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+= API Document
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+
+[[introduction]]
+== 소개
+
+Attach API Document
+
+[[common]]
+== 공통 사항
+
+Health Check를 제외한 모든 API는 인증받은 사용자만 이용 가능합니다.
+
+=== Domain
+
+|===
+| 환경 | domain
+
+| 개발서버
+| `localhost:8080`
+
+| 운영서버
+| `TODO`
+|===
+
+
+=== Header
+
+|===
+| name | 설명
+
+| `Authorization`
+|  API를 사용하기 위한 인증 키
+|
+|===
+
+=== 에러 Response Body
+
+|===
+| field | 설명
+
+| `errCode`
+| 응답 코드
+
+| `errMessage`
+| 예외사항 내용 등 응답 메세지
+
+|===
+
+[[default]]
+== 공통 API
+
+=== Health Check
+
+|===
+| 헬스 체크
+|===
+
+CURL:
+
+include::{snippets}/default/health-check/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/default/health-check/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/default/health-check/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/default/health-check/http-response.adoc[]
+
+
+=== Not Found
+
+|===
+| 구현되지 않은 경로로 요청 시 응답
+|===
+
+
+CURL:
+
+include::{snippets}/default/not-found/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/default/not-found/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/default/not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/default/not-found/http-response.adoc[]
+

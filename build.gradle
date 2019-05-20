@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.1.4.RELEASE'
     id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+    id 'org.asciidoctor.convert' version '2.2.0'
     id 'java'
     id 'idea'
 }
@@ -10,6 +11,7 @@ version = '0.0.1'
 
 ext {
     javaVersion = 12
+    snippetsDir = file('build/generated-snippets')
 
     versions = [
             'lombok'                : '1.18.+',
@@ -19,11 +21,24 @@ ext {
             'mysql'                 : '8.+',
             'uuid'                  : '3.2.+',
             'aws'                   : '1.+',
+            'restdocs'              : '2.1.+',
     ]
 }
 
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+}
+
+bootJar {
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
+}
 
 repositories {
     mavenCentral()
@@ -34,6 +49,8 @@ dependencies {
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions['lombok']
 
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions['spring-boot']
+
+    testImplementation group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: '2.0.3.RELEASE'
 
     testImplementation group: 'com.h2database', name: 'h2', version: versions['h2']
 
