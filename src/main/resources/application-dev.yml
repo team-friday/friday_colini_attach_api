@@ -16,7 +16,15 @@ spring:
 
 server.port: 8080
 
+
 colini.attach:
   file:
-    uploadType: Local
-    defaultUploadPath: ./temp/uploads
+    uploadType: S3
+    defaultUploadPath: temp/uploads
+  aws:
+    accessKey: ACCESS_KEY
+    secretKey: SECRET_KEY
+    region: ap-northeast-2
+    s3:
+      disable: true
+      bucketName: colini
