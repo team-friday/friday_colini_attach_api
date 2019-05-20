@@ -1,5 +1,6 @@
 package com.friday.colini.attach.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.friday.colini.attach.properties.FileProperties;
 import com.friday.colini.attach.type.UploadType;
 import com.friday.colini.attach.utils.BeanUtils;
@@ -8,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
+import org.springframework.core.io.AbstractResource;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,6 +18,12 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@JsonIgnoreProperties({
+        "file",
+        "uploadPath",
+        "uploadType",
+        "attachRequest",
+})
 @NoArgsConstructor(access = AccessLevel.PRIVATE) // Using JPA
 @Table
 @Entity
@@ -50,8 +59,6 @@ public class AttachFile extends AutoPrimaryEntity {
         originalName = file.getOriginalFilename();
         contentType = file.getContentType();
         uploadType = BeanUtils.getBean(FileProperties.class).getUploadType();
-
-        // TODO: upload
         uploadPath = uploadType.upload(file);
     }
 
@@ -74,6 +81,10 @@ public class AttachFile extends AutoPrimaryEntity {
 
     public @Nullable LocalDateTime getCreatedAt() {
         return attachRequest.getCreatedAt();
+    }
+
+    public @NonNull AbstractResource getFile() {
+        return new ByteArrayResource(uploadType.download(uploadPath));
     }
 
     public boolean isNotEqualsAttachRequestId(long attachRequestId) {

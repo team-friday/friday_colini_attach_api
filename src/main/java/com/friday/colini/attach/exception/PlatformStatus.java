@@ -14,9 +14,11 @@ public enum PlatformStatus {
     BAD_REQUEST(HttpStatus.BAD_REQUEST),
     NOT_FOUND(HttpStatus.NOT_FOUND),
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR),
+    NOT_SUPPORT(HttpStatus.INTERNAL_SERVER_ERROR),
 
     // Attach
     UNAVAILABLE_FILE(HttpStatus.BAD_REQUEST),
+    FILE_NOT_FOUND(HttpStatus.NOT_FOUND),
 
     ;
 
