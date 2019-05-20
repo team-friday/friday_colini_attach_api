@@ -16,7 +16,10 @@ abstract class FileReadWriter implements ReadWriter {
     //
 
     Path getUploadPath() {
-        return Paths.get(uploadPath, getTimebaseUUIDStrategyFilename());
+        return Paths.get(
+                uploadPath,
+                getTimebaseUUIDStrategyFilename()
+        );
     }
 
     //
