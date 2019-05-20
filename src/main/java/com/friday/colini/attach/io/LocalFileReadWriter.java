@@ -49,6 +49,14 @@ public class LocalFileReadWriter extends FileReadWriter {
         return Files.write(path, file.getBytes()).toString();
     }
 
+    @Override
+    Path getUploadPath() {
+        return Paths.get(
+                "./",
+                super.getUploadPath().toString()
+        );
+    }
+
     //
     //
     //
