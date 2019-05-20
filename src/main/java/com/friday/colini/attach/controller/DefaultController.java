@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class DefaultController {
     @RequestMapping("/health")
-    ResponseEntity healthCheck() {
+    private ResponseEntity healthCheck() {
         return Response.ok().build();
     }
 
     @RequestMapping
-    ResponseEntity notFound() {
+    private ResponseEntity notFound() {
         return PlatformStatus.NOT_FOUND.toResponse();
     }
 }

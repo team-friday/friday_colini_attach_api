@@ -8,3 +8,15 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+
+colini.attach:
+  file:
+    uploadType: S3
+    defaultUploadPath: temp/uploads
+  aws:
+    accessKey: ACCESS_KEY
+    secretKey: SECRET_KEY
+    region: ap-northeast-2
+    s3:
+      disable: true
+      bucketName: colini

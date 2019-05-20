@@ -49,6 +49,11 @@ public class S3ClientTests {
 
     @Test
     public void uploadAndDownloadTest() throws IOException {
+        if (s3Client.isDisable()) {
+            // Not test
+            return;
+        }
+
         final var uploadPath = getUploadPath();
         final var uploadFile = new MockMultipartFile(fileName, fileName, contentType, fileContent);
 
