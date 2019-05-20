@@ -18,6 +18,7 @@ ext {
             'hibernate'             : '5.+',
             'mysql'                 : '8.+',
             'uuid'                  : '3.2.+',
+            'aws'                   : '1.+',
     ]
 }
 
@@ -47,4 +48,6 @@ dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: versions['mysql']
 
     implementation group: 'com.fasterxml.uuid', name: 'java-uuid-generator', version: versions['uuid']
+
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: versions['aws']
 }
