@@ -47,7 +47,10 @@ class AttachController {
 
     @GetMapping(
             path = "/{attachRequestId}/files/{attachFileId}",
-            produces = MediaType.APPLICATION_OCTET_STREAM_VALUE
+            produces = {
+                    MediaType.APPLICATION_OCTET_STREAM_VALUE,   // Success
+                    MediaType.APPLICATION_JSON_VALUE            // Fail
+            }
     )
     private ResponseEntity<AbstractResource> downloadAttachFile(
             @PathVariable final long attachRequestId,
