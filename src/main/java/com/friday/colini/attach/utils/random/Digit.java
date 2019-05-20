@@ -1,16 +1,16 @@
-package com.friday.colini.attach.utils;
+package com.friday.colini.attach.utils.random;
 
 class Digit {
-    private final byte MIN_DIGIT = 0;
-    private final byte MAX_DIGIT = 9;
+    static final int MIN_DIGIT = 0;
+    static final int MAX_DIGIT = 9;
 
-    private byte digit;
+    private int digit;
 
     //
     //
     //
 
-    Digit(final byte digit) {
+    Digit(final int digit) {
         if (MIN_DIGIT > digit || digit > MAX_DIGIT) {
             throw new IllegalArgumentException();
         }
