@@ -1,4 +1,4 @@
-package com.friday.colini.attach.utils;
+package com.friday.colini.attach.utils.random;
 
 import lombok.AccessLevel;
 import lombok.Getter;
