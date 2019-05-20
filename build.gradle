@@ -50,7 +50,7 @@ dependencies {
 
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions['spring-boot']
 
-    testImplementation group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: '2.0.3.RELEASE'
+    testImplementation group: 'org.springframework.restdocs', name: 'spring-restdocs-mockmvc', version: versions['restdocs']
 
     testImplementation group: 'com.h2database', name: 'h2', version: versions['h2']
 
