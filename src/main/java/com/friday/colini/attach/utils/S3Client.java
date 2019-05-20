@@ -11,6 +11,7 @@ import com.amazonaws.util.IOUtils;
 import com.friday.colini.attach.exception.PlatformException;
 import com.friday.colini.attach.exception.PlatformStatus;
 import com.friday.colini.attach.properties.AwsProperties;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,7 @@ import java.io.IOException;
 public class S3Client {
     private final AmazonS3 s3;
 
+    @Getter
     private final boolean disable;
 
     @Autowired
