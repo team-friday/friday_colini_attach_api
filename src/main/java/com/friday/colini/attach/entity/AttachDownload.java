@@ -6,6 +6,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
+// Note: MyISAM (Not suing row lock)
 @Table
 @Entity
 @DynamicInsert

@@ -2,7 +2,6 @@ package com.friday.colini.attach.entity;
 
 import com.friday.colini.attach.repository.AttachRequestRepository;
 import com.friday.colini.attach.utils.random.RandomUtils;
-import lombok.Builder;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +25,10 @@ public class AttachEntityTests {
 
     @Autowired
     private AttachRequestRepository attachRequestRepository;
+
+    //
+    //
+    //
 
     @Test
     public void saveSingleFileAttachRequestTest() {
@@ -68,11 +71,11 @@ public class AttachEntityTests {
 
         final var fileInfos = IntStream.rangeClosed(1, fileCount)
                 .mapToObj(
-                        i -> FileInfo.builder()
-                                .fileName(randomUtils.getSecureString(10))
-                                .contentType(contentType)
-                                .fileContent((fileContent + "_" + i).getBytes())
-                                .build()
+                        i -> new Object[]{
+                                randomUtils.getSecureString(10),
+                                contentType,
+                                (fileContent + "_" + i).getBytes()
+                        }
                 )
                 .collect(Collectors.toList());
 
@@ -80,10 +83,10 @@ public class AttachEntityTests {
         final var files = fileInfos.stream()
                 .map(
                         fileInfo -> new MockMultipartFile(
-                                fileInfo.fileName,
-                                fileInfo.fileName,
-                                fileInfo.contentType,
-                                fileInfo.fileContent
+                                (String) fileInfo[0],
+                                (String) fileInfo[0],
+                                (String) fileInfo[1],
+                                (byte[]) fileInfo[2]
                         )
                 ).collect(Collectors.<MultipartFile>toList());
 
@@ -102,17 +105,10 @@ public class AttachEntityTests {
             final var fileInfo = fileInfos.get(i);
 
             Assertions.assertThat(attachFile).isNotNull();
-            Assertions.assertThat(attachFile.getContentType()).isEqualTo(fileInfo.contentType);
-            Assertions.assertThat(attachFile.getOriginalName()).isEqualTo(fileInfo.fileName);
+            Assertions.assertThat(attachFile.getContentType()).isEqualTo(fileInfo[1]);
+            Assertions.assertThat(attachFile.getOriginalName()).isEqualTo(fileInfo[0]);
             Assertions.assertThat(attachFile.getCreatedAt()).isNotNull();
             Assertions.assertThat(attachFile.getLastDownloadAt()).isNotNull();
         }
-    }
-
-    @Builder
-    static class FileInfo {
-        String fileName;
-        String contentType;
-        byte[] fileContent;
     }
 }
