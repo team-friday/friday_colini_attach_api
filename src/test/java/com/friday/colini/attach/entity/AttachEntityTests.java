@@ -1,7 +1,7 @@
 package com.friday.colini.attach.entity;
 
 import com.friday.colini.attach.repository.AttachRequestRepository;
-import com.friday.colini.attach.utils.RandomUtils;
+import com.friday.colini.attach.utils.random.RandomUtils;
 import lombok.Builder;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;

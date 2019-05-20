@@ -1,4 +1,4 @@
-package com.friday.colini.attach.utils;
+package com.friday.colini.attach.utils.random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;

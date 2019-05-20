@@ -1,5 +1,6 @@
 package com.friday.colini.attach.utils;
 
+import com.friday.colini.attach.utils.random.RandomUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
