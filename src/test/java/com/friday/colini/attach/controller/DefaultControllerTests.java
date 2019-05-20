@@ -1,24 +1,33 @@
 package com.friday.colini.attach.controller;
 
-import org.assertj.core.api.Assertions;
+import org.hamcrest.Matchers;
 import org.junit.Test;
-import org.springframework.http.HttpStatus;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class DefaultControllerTests extends ControllerSupport {
     @Test
-    public void healthCheck() {
-        final var response = template.getForEntity("/health", String.class);
+    public void healthCheck() throws Exception {
+        final var result = mockMvc.perform(get("/health"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn()
+                ;
 
-        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        Assertions.assertThat(response.getBody()).isNull();
+        assertThat(result.getRequest().getContentAsString()).isNull();
     }
 
     @Test
-    public void notFound() {
-        final var response = template.getForEntity("/34rtgrtgr43rtr", String.class);
-
-        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        Assertions.assertThat(response.getBody()).contains("\"errCode\":\"404\"");
-        Assertions.assertThat(response.getBody()).contains("\"errMessage\":\"NOT_FOUND\"");
+    public void notFound() throws Exception {
+        mockMvc.perform(get("/sfasdfadfdasfadfdsfas"))
+                .andDo(print())
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("errCode").value(Matchers.is("404")))
+                .andExpect(jsonPath("errMessage").value(Matchers.is("NOT_FOUND")))
+        ;
     }
 }
