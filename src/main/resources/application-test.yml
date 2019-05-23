@@ -18,6 +18,7 @@ colini.attach:
   file:
     uploadType: Local
     defaultUploadPath: temp/uploads
+    limitUploadFileLength: 5
   aws:
     accessKey: ACCESS_KEY
     secretKey: SECRET_KEY

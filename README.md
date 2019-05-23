@@ -31,14 +31,14 @@
 
 * [x] [패키지 별 설계 정리](https://github.com/team-friday/friday_colini_attach_api/wiki/%ED%8C%A8%ED%82%A4%EC%A7%80-%EA%B5%AC%EC%84%B1)
 
-* [ ] API 문서
+* [x] API 문서
 
-    * [ ] Rest Docs
+    * [x] Rest Docs
 
 
 #### 기능 구현
 
-  * [ ] 파일 업로드
+  * [x] 파일 업로드
   
     * [x] Local
     
@@ -46,7 +46,7 @@
     
     * [X] 파일 크기 검증
       
-    * [ ] 파일 갯수 검증
+    * [x] 파일 갯수 검증
   
   * [ ] 파일 다운로드
   

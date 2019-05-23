@@ -20,6 +20,7 @@ public enum PlatformStatus {
     UNAVAILABLE_FILE(HttpStatus.BAD_REQUEST),
     FILE_NOT_FOUND(HttpStatus.NOT_FOUND),
     UPLOAD_MAX_SIZE_EXCEED(HttpStatus.BAD_REQUEST),
+    UPLOAD_MAX_FILE_LENGTH_EXCEED(HttpStatus.BAD_REQUEST),
 
     ;
 
