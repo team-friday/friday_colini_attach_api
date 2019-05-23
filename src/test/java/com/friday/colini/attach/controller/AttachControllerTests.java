@@ -109,6 +109,37 @@ public class AttachControllerTests extends ControllerSupport {
     }
 
     @Test
+    public void uploadMaxFileLengthExceedTest() throws Exception {
+        mockMvc.perform(
+                fileUpload("/attach/attachments")
+                        .file(getTestFile())
+                        .file(getTestFile())
+                        .file(getTestFile())
+                        .file(getTestFile())
+                        .file(getTestFile())
+                        .file(getTestFile())
+        )
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("errCode").value(Matchers.is("400")))
+                .andExpect(jsonPath("errMessage").value(Matchers.is("UPLOAD_MAX_FILE_LENGTH_EXCEED")))
+
+                .andDo(
+                        document(
+                                "attach/upload-max-file-length-exceed",
+                                getDocumentRequest(),
+                                getDocumentResponse(),
+                                pathParameters(),
+                                responseFields(
+                                        fieldWithPath("errCode").type(JsonFieldType.STRING).description("에러 코드"),
+                                        fieldWithPath("errMessage").type(JsonFieldType.STRING).description("에러 메시지")
+                                )
+                        )
+                )
+        ;
+    }
+
+    @Test
     public void findAttachRequestTest() throws Exception {
         // Given
         final var result = mockMvc.perform(

@@ -13,4 +13,5 @@ import org.springframework.context.annotation.Configuration;
 public class FileProperties {
     private UploadType uploadType;
     private String defaultUploadPath;
+    private int limitUploadFileLength;
 }

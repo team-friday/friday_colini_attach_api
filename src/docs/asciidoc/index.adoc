@@ -165,6 +165,35 @@ include::{snippets}/attach/multi-save-request/response-fields.adoc[]
 
 
 
+=== 파일 업로드 파일 갯수 초과
+
+|===
+| 파일 업로드 파일 갯수 초과 실패
+|===
+
+
+CURL:
+
+include::{snippets}/attach/upload-max-file-length-exceed/curl-request.adoc[]
+
+HTTPie:
+
+include::{snippets}/attach/upload-max-file-length-exceed/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/attach/upload-max-file-length-exceed/http-request.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/attach/upload-max-file-length-exceed/http-response.adoc[]
+
+Response Fields:
+
+include::{snippets}/attach/upload-max-file-length-exceed/response-fields.adoc[]
+
+
+
 === 파일 업로드 조회
 
 |===
