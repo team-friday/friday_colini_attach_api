@@ -9,6 +9,11 @@ spring:
         format_sql: true
         show_sql: true
 
+  servlet.multipart:
+    enabled: true
+    max-file-size: 50MB
+    max-request-size: 100MB
+
 colini.attach:
   file:
     uploadType: Local
