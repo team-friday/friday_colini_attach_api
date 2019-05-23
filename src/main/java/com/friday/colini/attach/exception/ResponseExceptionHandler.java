@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @Slf4j
@@ -21,6 +22,11 @@ class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
         log.error("Amazon service exception", e);
 
         return PlatformStatus.INTERNAL_SERVER_ERROR.toResponse();
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ResponseEntity<Error> maxUploadSizeExceededException(final MaxUploadSizeExceededException e) {
+        return PlatformStatus.UPLOAD_MAX_SIZE_EXCEED.toResponse();
     }
 
     @ExceptionHandler(Exception.class)

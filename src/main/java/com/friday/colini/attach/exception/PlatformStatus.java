@@ -19,6 +19,7 @@ public enum PlatformStatus {
     // Attach
     UNAVAILABLE_FILE(HttpStatus.BAD_REQUEST),
     FILE_NOT_FOUND(HttpStatus.NOT_FOUND),
+    UPLOAD_MAX_SIZE_EXCEED(HttpStatus.BAD_REQUEST),
 
     ;
 
